@@ -122,7 +122,7 @@
 
     preg_match('/\bhe+y+\b|\bhe+l+o+\b|\bhi+\b|\byo+\b|\bbo+\b/i', $msg, $match);
     if($match) {
-      $msg = preg_replace('/\bhe+y+a*\b|\bhe+l+o+\b|\bhi+\b|\bs+u+p+\b/i', '', $msg);
+      $msg = preg_replace('/\bhe+y+\b|\bhe+l+o+\b|\bhi+\b|\byo+\b|\bbo+\b/i', '', $msg);
       echo $msg;
       return random_greeting()."\n".smart_reply($msg);
     }
