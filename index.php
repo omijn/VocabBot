@@ -10,8 +10,8 @@
 
   include("my_api_key.php");
 
-  $responses_file = fopen("venus_responses.txt", "r");
-  $responses = json_decode(fread($responses_file, filesize("venus_responses.txt")));
+  $responses_file = fopen("bot_responses.txt", "r");
+  $responses = json_decode(fread($responses_file, filesize("bot_responses.txt")));
 
 
   function random_greeting() {
@@ -149,15 +149,15 @@
   }
 
 
-  /*Venus IRC bot
+  /*IRC vocab bot
 
   */
 
   $server = 'irc.mibbit.net';
   $port = 6667;
-  $nick = 'VenusBot';
+  $nick = 'VocabBot';
   $ident = 'vbot';
-  $gecos = 'VenusBot v1.0';
+  $gecos = 'VocabBot v1.0';
   // $channel = '#botters-test';
 
   date_default_timezone_set("UTC");
@@ -195,7 +195,7 @@
       $username = $match[1];
 
       //extract message from PRIVMSG command
-      preg_match('/VenusBot\s\:(.*)/', $data, $match);
+      preg_match('/VocabBot\s\:(.*)/', $data, $match);
       $message = $match[1];
 
       $response = smart_reply($message);
@@ -208,7 +208,7 @@
 
       for($i = 0; $i < count($responses_to_send) - 1; $i++) {
         socket_write($socket, 'PRIVMSG '.$username." :"."$responses_to_send[$i]"."\r\n");
-        fwrite($log_file, "\n[VenusBot] - ".$responses_to_send[$i]);
+        fwrite($log_file, "\n[VocabBot] - ".$responses_to_send[$i]);
       }
 
 
