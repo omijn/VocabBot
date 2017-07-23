@@ -24,12 +24,12 @@ Written in PHP, this bot listens for incoming private messages on the Mibbit IRC
 #### Configuring your API key
 - Create a file called my_api_key.php in your project directory.
 - Insert the following code in my_api_key.php.
-<pre>
+````php
 <?php
   // Replace APIKEY with the API key you obtained from Wordnik
   $my_api_key = "APIKEY";
 ?>
-</pre>
+````
 
 #### Back to setup
 
